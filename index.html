@@ -10,9 +10,10 @@
       $(document).ready(function(){
         
         var showTweets = function(){
-          var $body = $('body');
-          $body.html('');
-
+          //var $body = $('body');
+          //$body.html('');
+          $('.tweet').remove();
+          var $list = $('#tweets');
           var index = streams.home.length - 1;
           var numTweets = 10; 
           var shwnTweets = streams.home.length - numTweets; 
@@ -20,14 +21,24 @@
           while(index >= shwnTweets){
             var tweet = streams.home[index];
             var time = tweet.created_at.toLocaleString();
-            var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message + ' at ' + time);
-            $tweet.appendTo($body);
+            var $name = $('<h3></h3>');
+            $name.text(tweet.user);
+            var $tweet = $('<li></li>');
+            var $message = $('<span></span>');
+            var $time = $('<span></span>');
+            $time.text(time)
+            $message.text(tweet.message);
+            //$tweet.text('@' + tweet.user + ': ' + tweet.message + ' at ' + time);
+            //$name.appendTo($tweet);
+            //$tweet.appendTo($list);
+            $tweet.addClass('tweet')
+            $tweet.append($name).append($message).append('<br>').append($time)
+            $list.append($tweet)
             index -= 1;
           }
         };
-        //showTweets();
-        //setInterval(showTweets, 5000);
+        showTweets();
+        setInterval(showTweets, 5000);
 
       });
 
@@ -37,11 +48,6 @@
       <h3>John McSmtih</h3>
       <span class="message">I like to tweet things these days</span>
       <br>
-      <span class="time">time</span>
-    </li>
-    <li>
-      <h3>John McSmtih</h3>
-      <span class="message">I like to tweet things these days</span>
       <span class="time">time</span>
     </li>
   </ul>
