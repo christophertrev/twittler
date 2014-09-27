@@ -14,7 +14,10 @@
           $body.html('');
 
           var index = streams.home.length - 1;
-          while(index >= 0){
+          var numTweets = 10; 
+          var shwnTweets = streams.home.length - numTweets; 
+          (shwnTweets < 0 ? shwnTweets = 0 : shwnTweets)
+          while(index >= shwnTweets){
             var tweet = streams.home[index];
             var $tweet = $('<div></div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
@@ -23,7 +26,7 @@
           }
         };
         showTweets();
-        setInterval(showTweets, 10000);
+        setInterval(showTweets, 5000);
 
       });
 
