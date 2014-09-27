@@ -20,25 +20,26 @@
           (shwnTweets < 0 ? shwnTweets = 0 : shwnTweets)
           while(index >= shwnTweets){
             var tweet = streams.home[index];
-            var time = tweet.created_at.toLocaleString();
+            var $tweet = $('<li></li>');
+            $tweet.addClass('tweet')
+            //Set the name portion
             var $name = $('<h3></h3>');
             $name.text(tweet.user);
-            var $tweet = $('<li></li>');
-            var $message = $('<span></span>');
+            //Grab the time portion
+            var time = tweet.created_at.toLocaleString();
             var $time = $('<span></span>');
-            $time.text(time)
+            $time.text(time).addClass('Time')
+            //Set the message
+            var $message = $('<span></span>');
             $message.text(tweet.message);
-            //$tweet.text('@' + tweet.user + ': ' + tweet.message + ' at ' + time);
-            //$name.appendTo($tweet);
-            //$tweet.appendTo($list);
-            $tweet.addClass('tweet')
+            // append to tweet object
             $tweet.append($name).append($message).append('<br>').append($time)
             $list.append($tweet)
             index -= 1;
           }
         };
         showTweets();
-        setInterval(showTweets, 5000);
+        //setInterval(showTweets, 5000);
 
       });
 
