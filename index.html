@@ -6,11 +6,21 @@
     <style>
       body {
         background-color: linen;
+        text-align: center;
       }
-      h2 {
+      h3 {
         color: maroon;
-        margin-left: 40px;
+        margin-left: 10px;
+        text-align: left;
       } 
+      #tweets {
+        list-style-type: none;
+      }
+      .tweet {
+        border: 1px solid;
+        width: 500px;
+        border-radius: 25px;
+      }
     </style>
   </head>
   <body>
@@ -33,7 +43,7 @@
             $tweet.addClass('tweet')
             //Set the name portion
             var $name = $('<h3></h3>');
-            $name.text(tweet.user);
+            $name.text('@'+tweet.user);
             //Grab the time portion
             var time = tweet.created_at.toLocaleString();
             var $time = $('<span></span>');
