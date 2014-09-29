@@ -5,21 +5,31 @@
     <script src="data_generator.js"></script>
     <style>
       body {
-        background-color: linen;
+        background-color: #C63D0F;
         text-align: center;
       }
       h3 {
-        color: maroon;
+        color: #3B3738;
         margin-left: 10px;
         text-align: left;
+        line-height: 1%;
+        font-size: large;
       } 
       #tweets {
         list-style-type: none;
       }
+      li {background: #FDF3E7}
       .tweet {
         border: 1px solid;
         width: 500px;
         border-radius: 25px;
+        color: #3B3738;
+        font-size: x-large;
+        
+      }
+      .Time {
+        font-size: small;
+        text-align: center;
       }
     </style>
   </head>
@@ -58,7 +68,7 @@
           }
         };
         showTweets();
-        //setInterval(showTweets, 5000);
+        setInterval(showTweets, 1000);
 
       });
 
