@@ -76,7 +76,13 @@
         var registerName = function (){
           $('h3').on('click', function(){
             var name = $(this).closest('li').data('name');
-            console.log(name);
+            var $tweets = $('.tweet')
+            console.log(name)
+            for( var i=0; i < $tweets.length ; i++){
+              if($tweets.eq(i).data('name') !== name){
+                $tweets.eq(i).remove();
+              }
+            }
           });
         };
 
