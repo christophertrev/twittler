@@ -18,7 +18,9 @@
       #tweets {
         list-style-type: none;
       }
-      li {background: #FDF3E7}
+      li {
+        background: #FDF3E7;
+      }
       .tweet {
         border: 1px solid;
         width: 500px;
@@ -50,7 +52,8 @@
           while(index >= shwnTweets){
             var tweet = streams.home[index];
             var $tweet = $('<li></li>');
-            $tweet.addClass('tweet')
+            $tweet.addClass('tweet');
+            $tweet.data({name: tweet.user});
             //Set the name portion
             var $name = $('<h3></h3>');
             $name.text('@'+tweet.user);
@@ -67,8 +70,9 @@
             index -= 1;
           }
         };
+
         showTweets();
-        setInterval(showTweets, 1000);
+        //setInterval(showTweets, 1000);
 
       });
 
