@@ -71,7 +71,14 @@
           }
         };
 
+     
+
         showTweets();
+          $('h3').on('click', function(){
+          var name = $(this).closest('li').data('name');
+          console.log(name);
+        });
+
         //setInterval(showTweets, 1000);
 
       });
