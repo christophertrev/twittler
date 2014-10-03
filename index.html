@@ -71,15 +71,22 @@
           }
         };
 
-     
-
         showTweets();
-          $('h3').on('click', function(){
-          var name = $(this).closest('li').data('name');
-          console.log(name);
-        });
+        registerName();
 
-        //setInterval(showTweets, 1000);
+        var registerName = function (){
+          $('h3').on('click', function(){
+            var name = $(this).closest('li').data('name');
+            console.log(name);
+          });
+        };
+
+        var refreshpage = function(){ 
+          showTweets();
+          registerName();
+        };
+
+        //setInterval(refreshpage, 2000);
 
       });
 
