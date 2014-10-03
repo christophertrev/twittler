@@ -77,12 +77,12 @@
           $('h3').on('click', function(){
             var name = $(this).closest('li').data('name');
             var $tweets = $('.tweet')
-            console.log(name)
             for( var i=0; i < $tweets.length ; i++){
               if($tweets.eq(i).data('name') !== name){
                 $tweets.eq(i).remove();
               }
             }
+            clearInterval(ref);
           });
         };
 
@@ -92,7 +92,7 @@
         };
         // create page 
         refreshpage();
-        //setInterval(refreshpage, 2000);
+        ref = setInterval(refreshpage, 2000);
 
       });
 
